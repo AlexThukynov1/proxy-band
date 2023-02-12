@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import MainContainer from './components/container/container-components/MainContainer';
+import PostList from './components/posts/post-components/post-list/PostList';
+import UsersList from './components/users/users-components/users-list/UsersList';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function App() {
+  const {curentUser} = useSelector((state) => state.users)
+  console.log(curentUser)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <div className="flex justify-center">
+        <MainContainer>
+          <Routes>
+            <Route  path='/' element={<UsersList/>}/>
+            <Route  path={`/userId${curentUser}posts`} element={ <PostList id={curentUser}/>}/>
+          </Routes>
+        </MainContainer>
+      </div>
   );
 }
 
