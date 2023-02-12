@@ -24,7 +24,7 @@ const AlbumsList = ({currId}) => {
     
     return (
        <div className='relative z-10 flex justify-center bg-black/5'>
-            <div className='fixed p-[25px] w-11/12 z-20 flex flex-col mt-[5%] bg-zinc-300'>
+            <div className='fixed p-[25px] w-11/12 z-20 flex flex-col mt-[15px] bg-zinc-300'>
                 <button className='border max-w-sm text-center self-center hover:bg-black hover:text-white  rounded-lg px-5 py-2' onClick={()=> dispatch(albumsShowTogle())}>Close</button>
                 <span>Users ID: {currId}</span>
                 {loader}
